@@ -1,6 +1,3 @@
-`<starcounter-include>`@3.0.0 & changes required in views
----
-
 With latest Release Candidate Starcounter 2.3.1.7022 we will ship the new version of `<starcounter-include>` - the element you use to include one (blended) partial view in another. It not only provides set of bug fixes, but it also makes us closer to the platform, Web Components V1 spec and removes confusing magic that was automatically creating slots.
 
 In this article I would like to guide you through those changes, so you will know what behavior to expect, what code to change and how. Fortunately, most of those changes could be prepared in advance as they will not break existing behavior.
@@ -17,14 +14,14 @@ The main changes are:
 1. `<juicy-composition>` was removed -
 
     previously your content was stamped at `starcounter-include > juicy-composition` now it's stamped directly in `starcounter-include` so your CSS selectors become shorter, you don't have to bother about additional wrapper and you are able to select and style nested `starcounter-include` from parent one's Shadow DOM.
-2. specific `<slot name="...">` elements are no longer automatically created for every Light DOM element -
+2. named `<slot ...>` elements are no longer automatically created for every Light DOM element -
 
-    that improves the performance heavily, removes confusing magic, makes us closer to just native Shadow DOM behavior - it's not just declarative, allows you to hide your element in Shadow DOM layout composition by just removing its `slot`.
-3. implicit slot names (like `slot="myapp/1"`) are no longer automatically created -
+    that improves the performance heavily, removes confusing magic, makes us closer to just native Shadow DOM behavior - it's not just declarative, allows you to hide your element in Shadow DOM layout composition by just removing its `<slot>`.
+3. implicit slot names/attributes (like `slot="myapp/1"`) are no longer automatically created -
 
     again it increases performance, reduces the magic. Also, it's requirement of the point above.
 
-    In SD V1, if element has a `slot` attribute attached it **will NOT** be distributed by default slot `<slot></slot>`. Therefore if we would attach `slot` attributes without creating `<slot name="_">` elements, we would hide all elements by default.
+    In SD V1, if element has a `slot` attribute attached it **will NOT** be distributed by default slot `<slot></slot>`. Therefore if we would attach `slot` attributes without creating named `<slot ...>` elements, we would hide all elements by default.
 4. Default slot (`<slot></slot>`) is now served from server-side for default `declarative-shadow-dom` -
 
     don't add it by yourself.
@@ -68,9 +65,9 @@ Naturally, this change may affect your existing CSS selectors.
 
 
 
-### Specific `<slot>` elements are no longer automatically created
+### Named `<slot ...>` elements are no longer automatically created
 
-Previously, even if you didn't provide any `declarative-shadow-dom` or specific layout composition in the database, or simply missed few `<slot name="...">` elements, we were creating them automatically for you.
+Previously, even if you didn't provide any `declarative-shadow-dom` or specific layout composition in the database, or simply missed few named `<slot ...>` elements, we were creating them automatically for you.
 
 This had significant cost:
 - we had to make all those checks and updates in run-time on every DOM mutation, which is simply expensive,
@@ -80,20 +77,20 @@ This had significant cost:
 
 That's why now, we no longer do so.
 
-✏️ If you want your elements to be blendable and be able to distribute them somewhere else than in default `<slot>`, you need to explicitly add `slot` attribute to your element and respective `<slot ...>` element in your `declarative-shadow-dom` and/or in specific layout composition in the DB.
+✏️ If you want your elements to be blendable and be able to distribute them somewhere else than in default `<slot>`, you need to explicitly add `slot` attribute to your element and respective named `<slot ...>` element in your `declarative-shadow-dom` and/or in specific layout composition in the DB.
 
 This may require a little bit more boilerplate code for blendable apps, but on the other hand, everything becomes clear, explicit and intuitive. Now to hide/don't distribute a `<div slot="myapp/my-name">` all you need to do is to remove `<slot name="myapp/my-name">` from your composition.
 
 ### Implicit slot names (like `slot="myapp/1"`) are no longer automatically created
 
-Previously if you forgot or omitted to add an explicit `slot` attribute/name to your Light DOM element, we were generating it automatically, so it could be blended later as an individual `<slot name="...">` (insertion point).
+Previously if you forgot or omitted to add an explicit `slot` attribute/name to your Light DOM element, we were generating it automatically, so it could be blended later as an individual named `<slot ...>` (insertion point).
 
 Once again it was not for free:
 - it was expensive, problematic and bug prone to generate in as the elements were added and removed dynamically at run-time,
 - it was confusing to developers when and why those names appear,
 - as Shadow DOM is relatively new technology, adding non-standard magic to it was leading to lots of misunderstanding,
 - updating the app view could invalidate and break existing layouts in a very mysterious way,
-- given the way SD v1 handles default slot, adding a slot name without `<slot ...>` element (see [above](#)) would hide it.
+- given the way SD v1 handles default slot, adding a `slot` name without named `<slot ...>` element (see [above](#)) would hide it.
   In V0 default slot `<content></content>` was distributing all **not yet distributed** elements, in V1 default slot `<slot></slot>` distributes all **not assigned** elements.
 
 Auto slot names and elements were pretty handy when we were migrating from old strict `juicy-tile-grid` solution to complete freedom of Shadow DOM layouts. But now they seem to do more harm than good. We would like to continue with an approach closer to Web Platform.
@@ -106,14 +103,14 @@ Due to how default slots behave in V1, if element has no `slot` attribute at all
 
 ### Default slot (`<slot></slot>`) is now served from serverside for default `declarative-shadow-dom`
 
-Back then, when we were creating `<slot ...>` elements for every (not-yet-distributed) Light DOM element, there was no need for default `<slot>`.
+Back then, when we were creating named `<slot ...>` elements for every (not-yet-distributed) Light DOM element, there was no need for default `<slot>`.
 Now it's useful and required.
 
 Since we discourage to add it manually in `declarative-shadow-dom` in any app - as you may hijack other apps' elements, we will create it automatically and append it to the bottom of the merged view. So, all not assigned elements from all the apps will be by default distributed at the very bottom of each view.
 
 This could be changed in specific layout composition stored in DB. Then, when you are already aware of all the apps running, you are free to place it anywhere you want, or event not placed it at all.
 
-✏️ For this change, you need no action. The result will look exactly the same as before - default `<slot>` is on the bottom in the place where all automatically created `<slot ...>` elements were placed. Just for the new specific compositions make sure you have it there (if you want it, naturally).
+✏️ For this change, you need no action. The result will look exactly the same as before - default `<slot>` is on the bottom in the place where all automatically created named `<slot ...>` elements were placed. Just for the new specific compositions make sure you have it there (if you want it, naturally).
 
 ### `<starcounter-include>` is Custom Element v1
 
