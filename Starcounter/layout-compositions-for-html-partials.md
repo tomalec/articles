@@ -4,11 +4,13 @@ Layout compositions for HTML partials
 Most of you are probably familiar with the concept of HTML Partial and with the way we [use them in Starcounter](http://starcounter.io/guides/web/partials/). So, you  are already aware that you can expose individual app UI as HTML Elements to be blended together with other apps and stamped to the page. Those elements could then be styled, re-arranged and composed to please the end user with more robust aesthetics and usability. In this article I'd try to show you how easily you could prepare "default" composition, so the end user will see your app elements as you desire, how to prepare the elements to look good composed with another app, and still keep you app extremely composable and flexible, so the designer would be able to do almost everything when he/she will need to prepare layout for the full suite of many apps running together.
 
 
+<!--more-->
+
 ## Introduction
 
 First let's make sure, we are all on the same page, and we know what we will be talking about.
 
-Somewhere in your page you would like to insert a partial, you do so by simply adding `<starcounter-include>` element to your markup:
+Somewhere in your page you would like to insert a partial, you do so by simply adding [`<starcounter-include>`](https://github.com/Starcounter/starcounter-include) element to your markup:
 
 ```html
 ...
@@ -61,15 +63,13 @@ Naturally, you should attach some default styles to all the custom elements you 
 You can also use regular stylesheets to apply styles to your native and custom elements. However, if you apply specific styles to your root elements they may become hard to mix and fit in some other app.
 
 
-<!-- ## Default layout composition for partial -->
-
 ## Layout composition and `slot` attribute
 
 In Starcounter we really love fresh tech, so we use [Shadow DOM](https://www.w3.org/TR/shadow-dom/) to solve such problems.
 
 It really is simpler than you may think.
 
-> If you want to read about how it works internally take a look at [Unobtrusive-styling-and.md]
+> If you want to read about how it works internally take a look at [starcounter.io/unobtrusive-styling-composing-3rd-party-html-content/](http://starcounter.io/unobtrusive-styling-composing-3rd-party-html-content/)
 
 
 The composition of elements is conceptually related to the insertion point and the context in which it's inserted.
@@ -205,7 +205,7 @@ The simple way to avoid such problems is to specify the names - designers will u
 Please note, that explicit slot names, helps you handle the layout when the elements are added in run-time. Layout may describe a place for it before it's loaded.
 
 
-## Where to put styles?
+## Where to put my styles?
 
 In HTML you can provide CSS styles in many ways: inline attribute, via `<style>` element (inline or external), you can use UserAgant's ones, or provide some defaults for Custom Elements / style your elements' internals in their Shadow DOM.
 And now you have layout compositions, and your defaults. At the first sight it may be hard to distinguish where to put your CSS rules.
@@ -228,3 +228,12 @@ All above uses Shadow DOM v1 - the new version of spec that soon will be support
 However, as of today V1 is not yet supported by stable version of polyfills, so Starcounter still uses V0.
 
 The only difference, which affects you as a app developer is the fact until V1 you should use `<content>` element instead of `<slot>`. So, you precisely instead of writing `<slot name="blah">` you need to write `<content select='[slot="blah"]'>`
+
+
+
+### Additional resources
+
+ - Custom Element for partial insertion point [`starcounter-include`](https://github.com/Starcounter/starcounter-include)
+ - Custom Element that attached Document Fragment to Shadow DOM, and take care of slots: [`juicy-composition`](https://github.com/Juicy/juicy-composition)
+ - Article on how Shadow DOM composition works [starcounter.io/unobtrusive-styling-composing-3rd-party-html-content/](http://starcounter.io/unobtrusive-styling-composing-3rd-party-html-content/)
+ - Article on "HTML partials/includes WebComponents-way" [starcounter.io/html-partialsincludes-webcomponents-way/](http://starcounter.io/html-partialsincludes-webcomponents-way/)
