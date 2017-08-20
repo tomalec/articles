@@ -1,9 +1,11 @@
-# Unobtrusive styling and composing 3rd party HTML content
+Unobtrusive styling and composing 3rd party HTML content
+----
 
 ## Abstract
 
 In modern, modular web apps it may happen that you are given the set of HTML Elements to be stamped to your Document (Fragment) - for example from a [partial](http://starcounter.io/html-partialsincludes-webcomponents-way/). Usually, you would like to preserve consistent look and feel within you app, so you would like to mess with them a little - compose, apply styles, etc. The problem starts if simple CSS is not enough and you cannot re-arrange them. They may rely on order or position in DOM to interoperate, you would try to keep data-binding simple, or you just do not want to expose huge style-related div-soup into your markup. Luckily we now have [Shadow DOM](https://w3c.github.io/webcomponents/spec/shadow/)! Thanks to which we can address all those needs.
 
+<!--more-->
 
 ## The case
 
@@ -37,10 +39,10 @@ However, it's your app and your insertion point, so you would like to make it lo
 Let's say you would like to render it that way:
 ```html
 <html>
-	... 
+	...
 	<div id="my-insertion-point">
 		<style>
-			...
+			/*...*/
 		</style>
 		<div class="my-class">
 			<your-element-0>...</your-element-0>
@@ -68,20 +70,17 @@ But still without moving actual elements in DOM tree to make any interactions wo
 
 ## The solution
 
-..is simple - use [Shadow DOM](https://w3c.github.io/webcomponents/spec/shadow/). 
-> You can learn more on how to use Shadow DOM for example from [Eric's article](https://developers.google.com/web/fundamentals/primers/shadowdom/)
+..is simple - use [Shadow DOM](https://w3c.github.io/webcomponents/spec/shadow/).
+> You can learn more on how to use Shadow DOM from [Eric's article](https://developers.google.com/web/fundamentals/primers/shadowdom/)
 
 
-
-> **tl;td** - obviously "there is a Custom Element for that" [juicy-composition](https://github.com/Juicy/juicy-composition)
-
-Just prepare your composition as Document Fragment. 
+Just prepare your composition as Document Fragment.
 You can programaticaly create it in JS with `document.createDocumentFragment()`, or use template element to define it more declaratively in HTML.
 
 ```html
 <template id="my-composition">
 	<style>
-		...
+		/*...*/
 	</style>
 	<div class="my-class">
 		<slot name="element-0"></slot><!-- for your-element-0 -->
@@ -116,7 +115,7 @@ containersShadow.appendChild(compositionInstance);
 And it will do the job.. eventually.
 
 There is one tricky bit remaining: we need to assign elements to slots.
-Unfortunately, as there is one issue not yet solved in spec - https://github.com/w3c/webcomponents/issues/343. We need to do so by manually setting the `slot` attributes to the elements.
+Unfortunately, as there is one issue not yet solved in spec - [w3c/webcomponents#343](https://github.com/w3c/webcomponents/issues/343). We need to do so by manually setting the `slot` attributes to the elements.
 
 ```js
 function assignSlots(nodesList){
@@ -133,6 +132,9 @@ And that's it.
 To react on any future changes to DOM you can wrap it with `MutationObserver`.
 
 
+#### There is a Custom Element for that
+ .. obviously, you can just use custom element that will make that job for you [github.com/Juicy/juicy-composition](https://github.com/Juicy/juicy-composition)
+
 ## Benefits
 
 Thanks to all above:
@@ -148,10 +150,10 @@ Thanks to all above:
 
 If you have any comments, questions, interesting use-cases, please contact me via comments here, [twitter @tomalecpl](https://twitter.com/tomalecpl) or any applicable github repo.
 
+
 ### Additional resources
 
  - Custom Element that covers all these features: [`juicy-composition`](https://github.com/Juicy/juicy-composition)
  - Article on "HTML partials/includes WebComponents-way" [starcounter.io/html-partialsincludes-webcomponents-way/](http://starcounter.io/html-partialsincludes-webcomponents-way/)
  - Custom Element that stamps templates with partials imported via HTML Imports: [`imported-template`](https://github.com/Juicy/imported-template)
  - In-memory application platform that supports such partials and layout compositions [Starcounter](http://starcounter.com/)
-
