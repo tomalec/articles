@@ -23,9 +23,9 @@ As warning in browser console shows, either:
 
 ### Current behavior
 
-Bin packing of elements (1.) we replaced with Shadow DOM - a Web Standard that not only lets app authors and designers use literally **any** HTML technique to style standalone or mixed apps, it also the standardized way to separate the layout related HTML composition from actual content and functional elements. For more read my previous articles: [Unobtrusive styling and composing 3rd party HTML content](http://starcounter.io/unobtrusive-styling-composing-3rd-party-html-content/) and [HTML partials/includes WebComponents-way](https://starcounter.io/html-partialsincludes-webcomponents-way/)
+Bin packing of elements (1.) was replaced with Shadow DOM - a Web Standard that not only lets app authors and designers use literally **any** HTML technique to style standalone or mixed apps, it also the standardized way to separate the layout related HTML composition from actual content and functional elements. For more read my previous articles: [Unobtrusive styling and composing 3rd party HTML content](http://starcounter.io/unobtrusive-styling-composing-3rd-party-html-content/) and [HTML partials/includes WebComponents-way](https://starcounter.io/html-partialsincludes-webcomponents-way/)
 
-To address remaining problems we introduced simple namespaces for our partial view-models. Now at every node where you attached blended results (blending point), you will see:
+To address remaining problems we introduced simple namespaces for our partial view-models. Now, at every node where you attached blended results (blending point), you see:
 
 ```js
 {
@@ -52,9 +52,9 @@ At the beginning, we thought this will be really cosmetic change, a cleanup task
 
 However, it occurred this backward compatibility bit was used as a feature by quite a few apps.
 
-Thet even led to the problems of its own, like: "Hey, I saved a custom HTML Composition for this partial in my database and it's not being used!", "I cannot blend another app to this URI", which all led to the point that it was not possible, as it was not a "blending point". It didn't use `Self.GET` on server-side even if it used `<starcounter-include>` on client-side.
+That even led to the problems of its own, like: "Hey, I saved a custom HTML Composition for this partial in my database and it's not being used!", "I cannot blend another app to this URI", which all led to the point that it was not possible, as it was not a "blending point". It didn't use `Self.GET` on server-side even if it used `<starcounter-include>` on client-side.
 
-That's yet another reason I find for dropping support of non-namespaced partials - fail fast.
+That's yet another reason I see for dropping support of non-namespaced partials - fail fast.
 
 
 ## The way to go
@@ -67,9 +67,9 @@ You need to ask yourself a simple question first.
 
 ## "Yes"
 
-If you include something that's conceptually separated from your main view-model, and this concept could be (mapped and) shared with other apps, I would advise you to make it blendable. That will let your app integrate tighter with other.
+If you include something that's conceptually separated from your main view-model, and this concept could be (mapped and) shared with other apps, I would advise you to make it blendable. That will let your app integrate tighter with others.
 
-Then you need to update server-side code, to actually use blending point ther. So instead of, for example
+Then you need to update server-side code, to actually use blending point there. So instead of, for example
 ```c#
  post.Author = new BlogAuthor()
  // ...
@@ -94,15 +94,15 @@ Handle.GET<string>("/blog/authors/{?}", (string id) =>
 
 Your client-side code should remain as it is.
 
-... unless you are using some CSS selectors or styling that assumes that `post.Author` will be just our app response. If it does you need to change that as other apps may potentially get stamped there as well.
+... unless you are using some CSS selectors or styling that assumes that `post.Author` will be only contain your app response. If it does you need to change that as other apps may potentially get stamped there as well.
 
 For more on that please read [Blending guides](https://docs.starcounter.io/guides/blending)
 
 ## "No"
 
-If your partial contains just your app internals, only modularized, and you are consciously don't want to use any Starcounter features like blending, custom Shadow DOM compositions fetched from the database, etc. If all you need is just a declarative client-side include, use [`imported-template`](https://github.com/Juicy/imported-template) - a custom element made exactly for it.
+If your partial contains only your app internals, just modularized, and you are consciously don't want to use any Starcounter features like blending, custom Shadow DOM compositions fetched from the database, etc. If all you need is just a declarative client-side include, use [`imported-template`](https://github.com/Juicy/imported-template) - a custom element made exactly for it.
 
-This time you keep your server-side code untouched. Now you need to stop using "blending point" in your client-side code.
+This time you keep your server-side code untouched. But, you need to stop using "blending point" in your client-side code.
 
 Replace
 ```html
@@ -145,7 +145,7 @@ If you are not sure if you need to change anything in your codebase, we would re
 
 I believe, once you are aware of it, the change is not so problematic.
 
-For sure it will let us make Starcounter's Web Platform more lightweight, running faster and developed faster. I hope it will also make your code more explicit and easier to handle.
+For sure it will let us make Starcounter's Web Platform more lightweight, running faster and be developed faster. I hope it will also make your code more explicit and easier to handle.
 
 
 ### Additional resources
