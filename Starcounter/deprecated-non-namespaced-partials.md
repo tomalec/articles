@@ -7,7 +7,8 @@ However, it occurred this feature of `<starcounter-include>` was used over time 
 I would like to show you why and how to transform those cases, to run happily after without problems and warnings.
 
 ## TL;DR
-As warning in browser console shows, either:
+As warning in browser console suggests, either:
+
  - Make it blendable by using `Self.GET` on server-side, or
  - Use [`<template is="imported-template">`](https://github.com/Juicy/imported-template) instead
 
@@ -36,6 +37,7 @@ To address remaining problems we introduced simple namespaces for our partial vi
 ```
 
 That gives us:
+
 1. Independent scopes for data-binding,
 2. Clear and explicit debugging,
 3. Possibility to attach multiple responses from the same app to the same URI,
@@ -70,16 +72,16 @@ You need to ask yourself a simple question first.
 If you include something that's conceptually separated from your main view-model, and this concept could be (mapped and) shared with other apps, I would advise you to make it blendable. That will let your app integrate tighter with others.
 
 Then you need to update server-side code, to actually use blending point there. So instead of, for example
-```c#
+```csharp
  post.Author = new BlogAuthor()
  // ...
 ```
 you need to write
-```c#
+```csharp
  post.Author = Self.GET<BlogAuthor>("/blog/authors/" + blog.author);
 ```
 and add a handler for this new call
-```c#
+```csharp
 Handle.GET<string>("/blog/authors/{?}", (string id) =>
 {
    return Db.Scope<BlogAuthor>(() =>
@@ -94,7 +96,7 @@ Handle.GET<string>("/blog/authors/{?}", (string id) =>
 
 Your client-side code should remain as it is.
 
-... unless you are using some CSS selectors or styling that assumes that `post.Author` will be only contain your app response. If it does you need to change that as other apps may potentially get stamped there as well.
+... unless you are using some CSS selectors or styling that assumes that `post.Author` will only contain your app response. If it does you need to change that as other apps may potentially get stamped there as well.
 
 For more on that please read [Blending guides](https://docs.starcounter.io/guides/blending)
 
@@ -131,6 +133,7 @@ We plan to make it an independent standalone element, but it's still in progress
 I would assume you didn't use it in your non-blendable partials, as you were not able to change it at run-time with the editor or with one provided from the database or blend with other apps.
 
 If you did, you can:
+
  - move it into light DOM, no other app will get blended with you so the need of separating layout is not that big,
  - add it by yourself - just a `<script>yourElement.attachShadow({mode:'open'});//...`,
  - wait for W3C to [make it a standard](https://discourse.wicg.io/t/declarative-shadow-dom/1904),
