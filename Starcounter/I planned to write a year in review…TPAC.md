@@ -6,9 +6,12 @@ I feel extremely grateful and uplifted by having an opportunity to participate i
 
 I'd like to share with you what I found most interesting there and my experience as a participant or observer in just a few out of many meetings that took place that week.
 That was my second TPAC, but I still consider myself as a newbie in there.
+<!--more-->
 
 ## The trip
- <img src="http://www.webexecutiveforum.com/assets/images/tpac-1400x1750.png" width="300" alt="TPAC2017 Logo"/>
+
+<img src="http://www.webexecutiveforum.com/assets/images/tpac-1400x1750.png" width="300" alt="TPAC2017 Logo" style="margin: 0 calc(50% - 150px);"/>
+
 This year TPAC was held in the USA, so that was quite a trip for me to get there from Poland. Lesson learned - jet lag and the time difference is a problem for brain-intense trips. Next time, I will come earlier to adapt, before meetings start.
 However, in general, traveling the world for better Web is definitely a nice thing to do. Sightseeing, meeting new people and cultures, and doing nerdy stuff mixes well.
 
@@ -21,7 +24,7 @@ I almost made an off-by-one error and came too late for the pre-party for newcom
 Now it's time to notice that those nice people are also one of the best professionals in any web-related tech I ever met. That applies to every single day and Working Group.
 
 
-On Monday I attended CSSWG meeting as an observer. Among all other topics, there were a few related to my beloved CSS Grid layout. Thanks to that many issues were resolved, such as intrinsic sizing of `overflow`ed grid and flex items.
+On Monday I attended CSSWG meeting as an observer. Among all other topics, there were a few related to my beloved [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/). Thanks to that many issues were resolved, such as intrinsic sizing of `overflow`ed grid and flex items.
 
 Grid gaps for intrinsic(auto) sized grid containers, that are expressed in `%` are now resolved to `0`. This gives us consistent and more comprehendible speced behavior. It's fairly easy to remember that `20% * unknown` resolves to `0`, but predicting the `20% * grid container that is stretched by dynamic contents of its auto-sized items` is an extreme puzzle even to the author of such CSS.
 
@@ -32,9 +35,9 @@ Thanks to that percentage sizing of columns and rows could work exactly the same
 
 ### Dev meetup
 
-At the evening W3C organized a meetup for the local community. It was full of demos and followed by great talks. I suggest you check https://www.w3.org/2017/11/Meetup/   there are slides for most of them.
+At the evening W3C organized a meetup for the local community. It was full of demos and followed by great talks. I suggest you check [www.w3.org/2017/11/Meetup/](https://www.w3.org/2017/11/Meetup/)   there are slides for most of them.
 
-The one that interested me most is "HTML re-imagined for the era of Web apps" by [@leaverou](http://lea.verou.me/) - there is a video of similar talk at https://www.webdirections.org/blog/video-week-mavo-html-re-imagined-era-web-apps-lea-verou/
+The one that interested me most is "HTML re-imagined for the era of Web apps" by [@leaverou](http://lea.verou.me/) - there is a video of similar talk at [www.webdirections.org/blog/video-week-mavo-html-re-imagined-era-web-apps-lea-verou/](https://www.webdirections.org/blog/video-week-mavo-html-re-imagined-era-web-apps-lea-verou/)
 
 She introduced [Mavo](https://mavo.io/). I'm not picking a hype on yet-another-JS-framework. But I'm hyped that there are more and more tools and frameworks embracing a declarative approach to write Web Apps. The approach we love and advertise in [Starcounter](https://starcounter.com/) too. I think it should play even better with our [Palindrom](https://github.com/Palindrom/Palindrom) approach of data sync, and declarative, real-time database access.
 
@@ -45,15 +48,15 @@ She introduced [Mavo](https://mavo.io/). I'm not picking a hype on yet-another-J
 
 We all know, that Web evolved from reading each other's text documents online. Back then single dimensional navigation form moving forward and backward (with tab or arrows) was perfectly enough, later the mouse/pointers helped to navigate in 2d space full of different UI elements. But sometimes you don't want (making breakfast) or simply cannot (a11y) use pointer, and moving forward and backward in modern Web is not enough, not to mention that in many cases even that is just simply broken. Hey, it's 2017! we have WebVR, HTML Elements rendering 3D objects, and we still cannot cover navigating in 2d?
 
-LGE presented a nice proposal. It was initiated by TV needs, but the idea is now continued at WICG https://github.com/WICG/spatial-navigation to design solution to fit across all disciplines (CSS, Web Components, A11Y), to improve navigation around Web in general. Hopefully, it would let us improve the experience of re-arranged UI elements from many apps on the same screen.
+LGE presented a nice proposal. It was initiated by TV needs, but the idea is now continued at WICG [github.com/WICG/spatial-navigation](https://github.com/WICG/spatial-navigation) to design solution to fit across all disciplines (CSS, Web Components, A11Y), to improve navigation around Web in general. Hopefully, it would let us improve the experience of re-arranged UI elements from many apps on the same screen.
 
 ### Archeology - scrollbars
 
-Did you know, that there is a 17years old issue https://bugzilla.mozilla.org/show_bug.cgi?id=77790, related to the feature of IE 5.5 introduced in 2000? Something that was a pain for all of those years - styling scrollbars - now will get improved https://drafts.csswg.org/css-scrollbars-1/ Probably we will start with a small set of properties to set, to have interoperability between browsers, some of which ;) could like to preserve consistent UI for their users. Anyway, I find it a big step forward.
+Did you know, that there is a 17years old issue [bugzilla.mozilla.org/show_bug.cgi?id=77790](https://bugzilla.mozilla.org/show_bug.cgi?id=77790), related to the feature of IE 5.5 introduced in 2000? Something that was a pain for all of those years - styling scrollbars - now will get improved [drafts.csswg.org/css-scrollbars-1/](https://drafts.csswg.org/css-scrollbars-1/) Probably we will start with a small set of properties to set, to have interoperability between browsers, some of which ;) could like to preserve consistent UI for their users. Anyway, I find it a big step forward.
 
 ### List markers
 
-How many times did you try to style list item markers? How many hacks do you know, to hide default bullet? How many times you saw/used `<div>` instead of a `<li>`? Thanks to the efforts of CSSWG there will be a new spec to solve that: https://drafts.csswg.org/css-lists-3/
+How many times did you try to style list item markers? How many hacks do you know, to hide default bullet? How many times you saw/used `<div>` instead of a `<li>`? Thanks to the efforts of CSSWG there will be a new spec to solve that: [drafts.csswg.org/css-lists-3/](https://drafts.csswg.org/css-lists-3/)
 
 ### Power to the people! (Specificity)
 ...or actually web developers. That's one of two CSS bits I'm most excited about.
@@ -62,13 +65,13 @@ For years devs writing CSS selectors were bound and punished by the mysterious t
 
 However, for big projects, developed by many people separated into different teams or even organizations, or build out of 3rd party modules or frameworks, it becomes a hell. That's why people started to work around it by hacks in JS & CSS or with methodologies like BEM.
 
-Lea Verou made a proposal https://github.com/w3c/csswg-drafts/issues/1170 of a pseudo-class, like `:matches` but with zero specificity. That finally gives authors a control over it. Thanks to that you will be able to use very precise selector - not to affect too many elements, but at the same time reduce its specificity - to make it easily overwritable. This new selector - working name `:is` - will let you make parts of your selector match, but not increase specificity. For example, your general framework-ish selector that would like to apply some default look for enabled buttons: `.framework-scope button:not([disabled]):not([type=submit])` is way more specific than simple but precise selector to style your buttons `button.mine`. With the new proposal, framework authors could write selectors that are specific/precise but less intrusive (with smaller specificity), like: `:is(.framework-scope) button:is(:not([disabled]):not([type=submit]))`, which will have same specificity as just `button`
+Lea Verou made a proposal [github.com/w3c/csswg-drafts/issues/1170](https://github.com/w3c/csswg-drafts/issues/1170) of a pseudo-class, like `:matches` but with zero specificity. That finally gives authors a control over it. Thanks to that you will be able to use very precise selector - not to affect too many elements, but at the same time reduce its specificity - to make it easily overwritable. This new selector - working name `:is` - will let you make parts of your selector match, but not increase specificity. For example, your general framework-ish selector that would like to apply some default look for enabled buttons: `.framework-scope button:not([disabled]):not([type=submit])` is way more specific than simple but precise selector to style your buttons `button.mine`. With the new proposal, framework authors could write selectors that are specific/precise but less intrusive (with smaller specificity), like: `:is(.framework-scope) button:is(:not([disabled]):not([type=submit]))`, which will have same specificity as just `button`
 
 
 
 ### Constructable Style Sheets
 
-That's the other part of Tuesday's discussions I'm most excited about. Probably, because it's closed to Web Component's needs. How many times have you constructed style sheet in JS? If you are making Custom Elements, or just using Shadow DOM extensively, I bet you do that quite often. Thanks to new spec https://tabatkins.github.io/specs/construct-stylesheets/ you could not only construct it in a more sane way with nicer API. You could do it without all that glue-code with creating/cloning `<style>` element and stamping it over and over again. Also, imagine how a browser could boost the performance of your site/app if it will be sure that you are passing the reference to the same object again. No need for stamping overhead (DOM events, mutations, etc.), parsing, processing, etc.
+That's the other part of Tuesday's discussions I'm most excited about. Probably, because it's closed to Web Component's needs. How many times have you constructed style sheet in JS? If you are making Custom Elements, or just using Shadow DOM extensively, I bet you do that quite often. Thanks to new spec [tabatkins.github.io/specs/construct-stylesheets/](https://tabatkins.github.io/specs/construct-stylesheets/)] you could not only construct it in a more sane way with nicer API. You could do it without all that glue-code with creating/cloning `<style>` element and stamping it over and over again. Also, imagine how a browser could boost the performance of your site/app if it will be sure that you are passing the reference to the same object again. No need for stamping overhead (DOM events, mutations, etc.), parsing, processing, etc.
 
 The spec is now in WICG, and there are browser vendors willing to implement it. I'm really looking forward to starting using it.
 
@@ -82,7 +85,7 @@ That was the day crowded with [~40 shorter sessions](https://www.w3.org/wiki/TPA
 FYI there is [wpt.FYI](http://wpt.fyi/) - a dashboard with all the tests running in all major browsers. There are over a million tests running daily, monitoring interoperability of our working environment. So next time when you hit some weird behavior across the browsers, you can go to this dashboard and check whether one browser fails the test for given feature.
 
 Even though the numbers look huge, there are still uncovered areas. Then, if your case is not covered by a test, go ahead and add one.
-It will help browser implementers to fix it sooner and will help you to track the progress on this particular issue, so you could get rid of the workarounds. It's as easy as creating a PR for https://github.com/w3c/web-platform-tests, and if you need more intro check http://testthewebforward.org/.
+It will help browser implementers to fix it sooner and will help you to track the progress on this particular issue, so you could get rid of the workarounds. It's as easy as creating a PR for [github.com/w3c/web-platform-tests](https://github.com/w3c/web-platform-tests), and if you need more intro check [testthewebforward.org](http://testthewebforward.org/).
 
 W3C folks are constantly working on improving the coverage, the ease of adding new tests, providing means to test more and more demanding features and APIs, that needs almost physical access to the device, and making effort to provide a tests suite with every change or a new spec.
 
@@ -99,7 +102,7 @@ The most interesting to me were asynchronous cookies API and Accessibility Objec
 
 How many times have you written/imported helper library just to read and write cookies? It's 2018, we have nice promise-based fetch API, IndexDB, Location API, but to read a single cookie we need to parse a huge string, not to mention problems with changing its value.
 
-So there is a new proposal (https://github.com/WICG/cookie-store/blob/gh-pages/explainer.md, https://patrickkettner.github.io/cookie-change-events/) to provide API that will allow us to remove hundreds of redundant cookie access libraries, but also allow users to use cookies in service workers.
+So there is a new proposal ([github.com/WICG/cookie-store/blob/gh-pages/explainer.md](https://github.com/WICG/cookie-store/blob/gh-pages/explainer.md), [patrickkettner.github.io/cookie-change-events/](https://patrickkettner.github.io/cookie-change-events/)) to provide API that will allow us to remove hundreds of redundant cookie access libraries, but also allow users to use cookies in service workers.
 
 It's far from reaching the consensus on the full set of features, but at least two browsers expressed interest in solving the basic problems.
 
@@ -122,8 +125,8 @@ I raised the concern for the similar problem with regular `<label>` and _labelab
 
 
 
-## Day 5 - 🎉 Web Components <3
-<img src="https://raw.githubusercontent.com/webcomponents/webcomponents-icons/master/logo/logo_256x256.png" alt="Web Components logo"/>
+## Day 5 - 🎉 Web Components ❤
+<img src="https://raw.githubusercontent.com/webcomponents/webcomponents-icons/master/logo/logo_256x256.png" alt="Web Components logo" style="margin: 0 calc(50% - 150px)";/>
 
 That was the day I was waiting for.
 
