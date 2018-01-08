@@ -126,7 +126,8 @@ I raised the concern for the similar problem with regular `<label>` and _labelab
 
 
 ## Day 5 - 🎉 Web Components ❤
-<img src="https://raw.githubusercontent.com/webcomponents/webcomponents-icons/master/logo/logo_256x256.png" alt="Web Components logo" style="margin: 0 calc(50% - 150px)";/>
+
+<img src="//raw.githubusercontent.com/webcomponents/webcomponents-icons/master/logo/logo_256x256.png" width="256" alt="Web Components logo" style="margin: 0 calc(50% - 128px)";/>
 
 That was the day I was waiting for.
 
