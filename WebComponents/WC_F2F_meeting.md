@@ -1,8 +1,8 @@
 # W3C Web Components meeting
 
 <!-- <br style="clear: both;"> -->
-<!-- <img src="wlovec.jpg" width="300" alt="W❤️C sign on Takeshita street, Tokyo" style="margin:  0 calc(50% - 150px);"/> -->
-<!-- <img src="wlovec.jpg" width="300" alt="W❤️C sign on Takeshita street, Tokyo" style="margin:  2em; float: right;"/> -->
+<!-- <img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/wlovec.jpg" width="300" alt="W❤️C sign on Takeshita street, Tokyo" style="margin:  0 calc(50% - 150px);"/> -->
+<!-- <img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/wlovec.jpg" width="300" alt="W❤️C sign on Takeshita street, Tokyo" style="margin:  2em; float: right;"/> -->
 
 
 This month [W3C Web Platform Working Group](https://www.w3.org/WebPlatform/WG/) gathered to discuss Web Components issues face-to-face.
@@ -12,7 +12,10 @@ The agenda was to resolve long-lasting contentious bugs, get consensus, gather b
 I must admit that the City of Tokyo, with it's Blade Runner-like streets enforces the feeling of building the future. I'd like to share with you what was the most interesting to me.
 
 <!-- more -->
-<img src="light_PANO.jpg" width="700" alt="Tokyo panorama in sunny day" style="margin: 0 calc(50% - 350px);"/>
+
+<img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/light_PANO.jpg" width="700" alt="Tokyo panorama in sunny day" style="margin: 0 calc(50% - 350px);"/>
+
+
 ## Contentious issues
 
 We addressed a number of issues, some of them few years old.
@@ -182,7 +185,7 @@ It's definitely worth reading and providing feedback.
 
 
 
-<img src="dark.jpg" width="700" alt="Tokyo panorama by night" style="margin: 0 calc(50% - 350px);"/>
+<img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/dark.jpg" width="700" alt="Tokyo panorama by night" style="margin: 0 calc(50% - 350px);"/>
 
 ## Summary
 
@@ -191,4 +194,4 @@ For me, that were most intense two day this year so far (Q1 2018). I felt my bra
 
 With love for Web, for Platform, [#foreveryone](http://www.foreveryone.net/).
 
-<img src="wlovec.jpg" width="200" alt="W❤️C sign on Takeshita street, Tokyo" style="margin:  2em; ">
+<img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/wlovec.jpg" width="200" alt="W❤️C sign on Takeshita street, Tokyo" style="margin:  2em; ">
