@@ -13,7 +13,7 @@ I must admit that the City of Tokyo, with it's Blade Runner-like streets enforce
 
 <!-- more -->
 
-<img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/light_PANO.jpg" width="700" alt="Tokyo panorama in sunny day" style="margin: 0 calc(50% - 350px);"/>
+<img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/light_Pano.jpg" width="700" alt="Tokyo panorama in sunny day" style="margin: 0 calc(50% - 350px);"/>
 
 
 ## Contentious issues
