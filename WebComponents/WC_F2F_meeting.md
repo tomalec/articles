@@ -1,4 +1,4 @@
-# W3C Web Components meeting
+# W3C Web Components meeting 🗼🇯🇵
 
 <!-- <br style="clear: both;"> -->
 <!-- <img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/wlovec.jpg" width="300" alt="W❤️C sign on Takeshita street, Tokyo" style="margin:  0 calc(50% - 150px);"/> -->
