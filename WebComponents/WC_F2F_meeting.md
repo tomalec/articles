@@ -18,22 +18,22 @@ I must admit that the City of Tokyo, with it's Blade Runner-like streets enforce
 
 ## Contentious issues
 
-We addressed a number of issues, some of them few years old.
+We addressed a number of issues, some of them were few years old.
 
 
 ### [`ChildConnectedCallback`](https://github.com/w3c/webcomponents/issues/550)
 Sometimes, you would like your element to react to children being added or removed. Currently to handle that custom element author have to use Mutation Observers, track `connected-`, `disconnectedCallback` and `slotchange` events carefully.
 
 The group agreed that this is nice to have feature, but the performance cost of observing that for all elements could be expensive.
-Currently, the problem is somewhat coverable by libraries and frameworks, therefore it has low priority. The missing piece of puzzle seems to be imperative slotting API, which is more likely to be implemented first.
+Currently, the problem is somewhat coverable by libraries and frameworks, therefore it has low priority. The missing piece of the puzzle seems to be imperative slotting API, which is more likely to be implemented first.
 
 ### [Base URL for shadow root](https://github.com/w3c/webcomponents/issues/581)
 Hopefully, it would be solved together with HTML Modules.
-Usually, the biggest problem arise when you provide a template with relative paths in a HTML module, then stamp it into an element inside the main document.
+Usually, the biggest problem arises when you provide a template with relative paths in an HTML module, then stamp it into an element inside the main document.
 
 
 ### [Prototype callbacks need no-ops](https://github.com/w3c/webcomponents/issues/582)
-Given the number of classes there is growing usage of mixins and extending unknown classes. That's why you don't know if there is a `super` to run. The answer was to solve it in the future by [JS optional chain](https://github.com/tc39/proposal-optional-chaining). I'm really looking forward to reducing all those repetitive conditions.
+Given the number of classes, there is growing use of mixins and extending unknown classes. That's why you don't know if there is a `super` to run. The answer was to solve it in the future by [JS optional chain](https://github.com/tc39/proposal-optional-chaining). I'm really looking forward to reducing all those repetitive conditions.
 
 ### [Custom void/self-closing elements](https://github.com/w3c/webcomponents/issues/624#issuecomment-370310607)
 We all heard the complaints about the verbosity of Custom Elements - the fact you need to explicitly close every custom element.
@@ -56,7 +56,7 @@ In [Starcounter](https://starcounter.com/), it should let us have more control o
 
 ### [Custom attributes](https://github.com/matthewp/custom-attributes)
 
-It was not discussed as a separate issue, but was mentioned many times as a better alternative to some proposals. It looks promising for the group.
+It was not discussed as a separate issue but was mentioned many times as a better alternative to some proposals. It looks promising for the group.
 
 Maybe we as Starcounter should give it a try, and try to implement some features on top of that, instead of relying on for example customized build ins polyfill (independent `<declarative-shadow-dom>`)
 
@@ -70,9 +70,9 @@ Browser implementers expressed significant interest, now we need just a formal p
 
 That's big!
 
-I think everybody who tried to use Custom Elements in a bigger project face the problem of custom element names collision, or at least version collision. So far all custom elements are registered in the same, one and only, global registry, given absolutely no way to scope.
+I think everybody who tried to use Custom Elements in a bigger project faces the problem of custom element names collision, or at least version collision. So far all custom elements are registered in the same, one and only, global registry, given absolutely no way to scope.
 
-Polymer made a proposal for low-level API to create separate scopes and registries. The proposal received interest from browser implementers. Even Apple expressed that foresighted performance limitations in proposal could be optimized by the browsers. What is more, there are ideas to scope it on the tree DOM level, not only on shadow host.
+Polymer made a proposal for low-level API to create separate scopes and registries. The proposal received interest from browser implementers. Even Apple expressed that foresighted performance limitations in the proposal could be optimized by the browsers. What is more, there are ideas to scope it on the tree DOM level, not only on shadow host.
 
 That would be a great win for Starcounter's merged partial views. This would allow every app, even every individual partial view to use colliding custom element names with different implementations underneath. Possibly even in the light DOM!
 
@@ -81,20 +81,20 @@ That would be a great win for Starcounter's merged partial views. This would all
 The standard to let custom elements participate in the form submission and actually writing custom form controls is getting pace. The proposal is available [as google doc](https://docs.google.com/document/d/1JO8puctCSpW-ZYGU8lF-h4FWRIDQNDVexzHoOQ2iQmY/edit?usp=sharing)
 There are still many caveats to cover. Luckily browser implementers agreed to implement low-hanging fruit first. Something that would allow at least working around/polyfilling most of the use cases.
 
-We should get `beforesubmit` event that would fire on the form element containing `FormData` so one could add/remove some imperatively. This would let us make submitable custom inputs, without a need to wrap native elements and wire them together manually.
+We should get `beforesubmit` event that would fire on the form element containing `FormData` so one could add/remove some imperatively. This would let us make submittable custom inputs, without a need to wrap native elements and wire them together manually.
 
 ## [Template instantiation](https://github.com/w3c/webcomponents/issues/747)
 
-Day 2 started with templates. The discussions were focused on deep details and engaged almost entire group. That, in my opinion, is a sign of maturity of this proposal. The biggest topic was how to express and expose the actual parts of the template.
+Day 2 started with templates. The discussions were focused on deep details and engaged almost the entire group. That, in my opinion, is a sign of maturity of this proposal. The biggest topic was how to express and expose the actual parts of the template.
 
 
 See [slides from Polymer presentation]( https://docs.google.com/presentation/d/1f9lMbJA_TSUwXXWPvH7QcIEMy1yUVcSD_KNpGjHztyk/edit ) and [github.com/w3c/webcomponents#747](https://github.com/w3c/webcomponents/issues/747) for the summary.
 
 What I like the most about the outcome of the discussions is that the Platform will start with shipping low-level primitives, that would allow frameworks and individual authors to address most of the use cases, then gradually deliver higher level features to provide nice and clean declarative and actually useful syntax at the end.
 
-I believe with this low level features in place we could implement our JSON Patch backed template binding. However, I would wait until we could use stabilized polyfill, and maybe one native (even flagged) implementation.
+I believe with this low-level features in place we could implement our JSON Patch backed template binding. However, I would wait until we could use stabilized polyfill, and maybe one native (even flagged) implementation.
 
-Even if we stick to the current solution with framework given template binding, we should eventually feel the benefits, as frameworks should adapt those low-level primitives soon. Then, use faster, native implementations. So far Angular expressed interest in adoption and Polymer is already experimenting heavily.
+Even if we stick to the current solution with framework given template binding, we should eventually feel the benefits, as frameworks should adopt those low-level primitives soon. Then, use faster, native implementations. So far Angular expressed interest in adoption and Polymer is already experimenting heavily.
 
 ## [Custom pseudo elements, `::part` and `::theme`](https://drafts.csswg.org/css-shadow-parts/)
 
@@ -139,7 +139,7 @@ That's the part I'm mostly sad about.
 Maybe that's because I get emotionally attached to it due to the fact I aggregated a strawman proposal recently, implemented and supported it in Starcounter a few years ago.
 
 It was nice to hear a lot of support from SkateJS and Salesforce.
-Unfortunately for Google and Apple implementers support for HTML + CSS - no-JS devs, and environments with blocked or nonavailable JS was not enough value and motivation.
+Unfortunately for Google and Apple implementers support for HTML + CSS - no-JS devs and environments with blocked or nonavailable JS was not enough value and motivation.
 Implementing `<shadowroot>` tag would require an additional specific step on end tag, what introduces lots of changes and is prone to security bugs, as it's tangled deep in the parser.
 
 I could be sad but have to admit they have a reason to reject. That only gives more motivation, to explore and promote such solutions in user-land.
@@ -155,7 +155,7 @@ Maybe a second default processor fot tempalte instantiation - `<template type="s
 Also, maybe, we could get back to it while discussing Declarative Custom Elements, as `<define>` has exact same problems with END_TAG callback as `<shadowroot>`. Browser implementers are more keen to ship Declarative CE. Maybe we could piggyback `<shadowroot>` to `<define>` in batch of HTML Parser changes ;)
 
 
-Group non-enthusiastically agreed to put explicit note that Shadow DOM feature does require JS to work.
+Group non-enthusiastically agreed to put an explicit note that Shadow DOM feature does require JS to work.
 
 
 
@@ -163,13 +163,13 @@ Group non-enthusiastically agreed to put explicit note that Shadow DOM feature d
 
 The proposal is moving forward. More, and more detailed problems are being discussed, such as Base URL for a module, whether to use `Document` or `DocumentFragment`, parsing strategies, etc. Those may take a while to solve and get consensus on, but at least there still is implementers interest to cover this feature.
 
-Just hope somebody will come up with concrete proposal for all those cases.
+Just hope somebody will come up with a concrete proposal for all those cases.
 
 ## [Declarative Custom Elements](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md)
 
 [Apple's proposal](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Declarative-Custom-Elements-Strawman.md) is really interesting and nice syntactic sugar to build Custom Elements. I think it could allow more web citizens to write their elements without getting into problems with JS bindings.
 
-The idea actually makes sense only with template instantiation in place. So we would rather wait for templates before digging deeper in it.
+The idea actually makes sense only with template instantiation in place. So we would rather wait for templates before digging deeper into it.
 Needles to mention its own problems with attribute vs. property binding, timing, exporting, etc.
 
 
@@ -178,7 +178,7 @@ Moreover, it also requires magical features for the end tag what was a blocker f
 
 ## Imperative slotting API
 
-Even thought there was no specific proposal or issue discussed during the meeting, the interest in imperative API for slotting was shared across all parties. It potentially solves many other issues and also plays nice with the approach: "Give web authors low-level primitives to do whatever they want".
+Even though there was no specific proposal or issue discussed during the meeting, the interest in imperative API for slotting was shared across all parties. It potentially solves many other issues and also plays nice with the approach: "Give web authors low-level primitives to do whatever they want".
 
 Few days after Hayato Ito from Google posted his proposal at https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Imperative-Shadow-DOM-Distribution-API.md
 It's definitely worth reading and providing feedback.
@@ -189,7 +189,7 @@ It's definitely worth reading and providing feedback.
 
 ## Summary
 
-For me, that were most intense two day this year so far (Q1 2018). I felt my brain baked. However, I'd love to more such meetings. That's great to see Web Platform moving forward just in front of you. Talk to all those professionals. Meeting all those great individuals in person gives even more empathy, understanding and respect, to their avatars seen on Github daily.
+For me, that was most intense two days this year so far (Q1 2018). I felt my brain baked. However, I'd love to more such meetings. That's great to see Web Platform moving forward just in front of you. Talk to all those professionals. Meeting all those great individuals in person gives even more empathy, understanding, and respect, to their avatars seen on Github daily.
 
 
 With love for Web, for Platform, [#foreveryone](http://www.foreveryone.net/).
