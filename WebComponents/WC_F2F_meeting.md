@@ -1,17 +1,9 @@
-# W3C Web Components meeting 🗼🇯🇵
-
-<!-- <br style="clear: both;"> -->
-<!-- <img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/wlovec.jpg" width="300" alt="W❤️C sign on Takeshita street, Tokyo" style="margin:  0 calc(50% - 150px);"/> -->
-<!-- <img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/wlovec.jpg" width="300" alt="W❤️C sign on Takeshita street, Tokyo" style="margin:  2em; float: right;"/> -->
-
-
-This month [W3C Web Platform Working Group](https://www.w3.org/WebPlatform/WG/) gathered to discuss Web Components issues face-to-face.
+Recently [W3C Web Platform Working Group](https://www.w3.org/WebPlatform/WG/) gathered to discuss Web Components issues face-to-face.
 The agenda was to resolve long-lasting contentious bugs, get consensus, gather browsers interest on new proposals and talk about the future of Web Components and Web Platform in general.
 
 
-I must admit that the City of Tokyo, with it's Blade Runner-like streets enforces the feeling of building the future. I'd like to share with you what was the most interesting to me.
-
-<!-- more -->
+I must admit that the City of Tokyo, with its Blade Runner-like streets enforces the feeling of building the future. I'd like to share with you what was the most interesting to me.
+<!--more-->
 
 <img src="https://raw.githubusercontent.com/tomalec/articles/master/WebComponents/wcf2f/light_Pano.jpg" width="700" alt="Tokyo panorama in sunny day" style="margin: 0 calc(50% - 350px);"/>
 
@@ -138,11 +130,11 @@ That's the part I'm mostly sad about.
 
 Maybe that's because I get emotionally attached to it due to the fact I aggregated a strawman proposal recently, implemented and supported it in Starcounter a few years ago.
 
-It was nice to hear a lot of support from SkateJS and Salesforce.
+It was nice to hear a lot of support from [SkateJS](http://skatejs.netlify.com/) and Salesforce.
 Unfortunately for Google and Apple implementers support for HTML + CSS - no-JS devs and environments with blocked or nonavailable JS was not enough value and motivation.
 Implementing `<shadowroot>` tag would require an additional specific step on end tag, what introduces lots of changes and is prone to security bugs, as it's tangled deep in the parser.
 
-I could be sad but have to admit they have a reason to reject. That only gives more motivation, to explore and promote such solutions in user-land.
+I could be sad but, I have to admit they have a reason to reject. That only gives more motivation, to explore and promote such solutions in user-land.
 Hopefully, at least some of the use cases are solvable by library/custom-element. Syntactic sugar, HTML & CSS devs support, server-side rendering with just a little bit of JS. For the cases without JS we would have to find some solution that provides a view without Shadow DOM at all.
 
 I think we should gather the community, use-cases and promote the benefits to improve the motivation for drastic changes in the implementations.
@@ -150,9 +142,9 @@ I think we should gather the community, use-cases and promote the benefits to im
 
 I hope we could get back to this topic once template instantiation will be more stable, as `<template>` element already solves most of the blocking issues mentioned by Apple. Initially, I just didn't want to overload the same element with many features (see `input`).
 
-Maybe a second default processor fot tempalte instantiation - `<template type="shadowroot">` could be a solution.
+Maybe a second default processor for template instantiation - `<template type="shadowroot">` could be a solution.
 
-Also, maybe, we could get back to it while discussing Declarative Custom Elements, as `<define>` has exact same problems with END_TAG callback as `<shadowroot>`. Browser implementers are more keen to ship Declarative CE. Maybe we could piggyback `<shadowroot>` to `<define>` in batch of HTML Parser changes ;)
+Also, maybe, we could get back to it while discussing Declarative Custom Elements, as `<definition>` has exact same problems with END_TAG callback as `<shadowroot>`. Browser implementers are more keen to ship Declarative CE. Maybe we could piggyback `<shadowroot>` to `<definition>` in batch of HTML Parser changes ;)
 
 
 Group non-enthusiastically agreed to put an explicit note that Shadow DOM feature does require JS to work.
@@ -180,7 +172,7 @@ Moreover, it also requires magical features for the end tag what was a blocker f
 
 Even though there was no specific proposal or issue discussed during the meeting, the interest in imperative API for slotting was shared across all parties. It potentially solves many other issues and also plays nice with the approach: "Give web authors low-level primitives to do whatever they want".
 
-Few days after Hayato Ito from Google posted his proposal at https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Imperative-Shadow-DOM-Distribution-API.md
+Few days after Hayato Ito from Google posted his proposal at [github.com/w3c/webcomponents/blob/gh-pages/proposals/Imperative-Shadow-DOM-Distribution-API.md](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Imperative-Shadow-DOM-Distribution-API.md)
 It's definitely worth reading and providing feedback.
 
 
@@ -189,7 +181,7 @@ It's definitely worth reading and providing feedback.
 
 ## Summary
 
-For me, that was most intense two days this year so far (Q1 2018). I felt my brain baked. However, I'd love to more such meetings. That's great to see Web Platform moving forward just in front of you. Talk to all those professionals. Meeting all those great individuals in person gives even more empathy, understanding, and respect, to their avatars seen on Github daily.
+For me, that was most intense two days this year so far (Q1 2018). I felt my brain baked. However, I'd love to attend more of such meetings. That's great to see Web Platform moving forward just in front of you and talk to all those professionals. Meeting all those great individuals in person gives even more empathy, understanding, and respect, to their avatars seen on Github daily.
 
 
 With love for Web, for Platform, [#foreveryone](http://www.foreveryone.net/).
